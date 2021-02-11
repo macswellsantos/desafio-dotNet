@@ -42,7 +42,7 @@ namespace Cadastro
 
         private void limpar()
         {
-            txtId.Text = "";
+            id_cliente = "";
             txtNome.Text = "";
             txtDdd.Text = "";
             txtTelefone.Text = "";
@@ -92,17 +92,20 @@ namespace Cadastro
         {
             try
             {
+                id_cliente = dGV.SelectedRows[0].Cells["ID"].Value.ToString();
+
+
                 conexao = new MySqlConnection("Server=localhost;Database=cadastro;Uid=root;Pwd=mysql;");
                 query = "CALL DELETACLIENTE(@ID)";
 
                 comando = new MySqlCommand(query, conexao);
-                comando.Parameters.AddWithValue("@ID", txtId.Text);
+                comando.Parameters.AddWithValue("@ID", id_cliente);
 
                 conexao.Open();
 
                 comando.ExecuteNonQuery();
                 preenche();
-                MessageBox.Show("Cadastrado!");
+                MessageBox.Show("Excluído!");
             }
             catch (Exception ex)
             {
@@ -155,7 +158,7 @@ namespace Cadastro
                 comando.Parameters.AddWithValue("@NOME", txtNome.Text);
                 comando.Parameters.AddWithValue("@DDD", txtDdd.Text);
                 comando.Parameters.AddWithValue("@TELEFONE", txtTelefone.Text);
-                comando.Parameters.AddWithValue("@ID", txtId.Text);
+                comando.Parameters.AddWithValue("@ID", id_cliente);
 
                 conexao.Open();
 

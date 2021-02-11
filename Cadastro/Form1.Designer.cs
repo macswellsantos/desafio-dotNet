@@ -42,7 +42,6 @@ namespace Cadastro
             this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGV)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +49,7 @@ namespace Cadastro
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(284, 35);
+            this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(142, 20);
             this.txtNome.TabIndex = 0;
@@ -66,6 +66,7 @@ namespace Cadastro
             // txtDdd
             // 
             this.txtDdd.Location = new System.Drawing.Point(284, 71);
+            this.txtDdd.MaxLength = 3;
             this.txtDdd.Name = "txtDdd";
             this.txtDdd.Size = new System.Drawing.Size(36, 20);
             this.txtDdd.TabIndex = 2;
@@ -82,6 +83,7 @@ namespace Cadastro
             // txtTelefone
             // 
             this.txtTelefone.Location = new System.Drawing.Point(326, 71);
+            this.txtTelefone.MaxLength = 10;
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(100, 20);
             this.txtTelefone.TabIndex = 4;
@@ -117,7 +119,7 @@ namespace Cadastro
             this.dGV.RowHeadersVisible = false;
             this.dGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGV.Size = new System.Drawing.Size(545, 270);
-            this.dGV.TabIndex = 6;
+            this.dGV.TabIndex = 7;
             // 
             // ID
             // 
@@ -152,7 +154,7 @@ namespace Cadastro
             this.btnEditar.Location = new System.Drawing.Point(581, 186);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(89, 23);
-            this.btnEditar.TabIndex = 7;
+            this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -162,25 +164,17 @@ namespace Cadastro
             this.btnExcluir.Location = new System.Drawing.Point(581, 224);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(89, 23);
-            this.btnExcluir.TabIndex = 8;
+            this.btnExcluir.TabIndex = 9;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(43, 38);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(26, 20);
-            this.txtId.TabIndex = 9;
-            this.txtId.Visible = false;
             // 
             // btnLimpar
             // 
             this.btnLimpar.Location = new System.Drawing.Point(336, 113);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 10;
+            this.btnLimpar.TabIndex = 6;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -191,7 +185,6 @@ namespace Cadastro
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 450);
             this.Controls.Add(this.btnLimpar);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dGV);
@@ -223,7 +216,6 @@ namespace Cadastro
         private System.Windows.Forms.DataGridView dGV;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn DDD;
