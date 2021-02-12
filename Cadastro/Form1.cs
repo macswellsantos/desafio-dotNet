@@ -13,7 +13,9 @@ namespace Cadastro
 {
     public partial class Form1 : Form
     {
+
         MySqlConnection conexao;
+        string banco = "Server=localhost;Database=cadastro;Uid=root;Pwd=mysql;";
         MySqlCommand comando;
         MySqlDataAdapter da;
         string query;
@@ -57,7 +59,9 @@ namespace Cadastro
         {
             try
             {
-                conexao = new MySqlConnection("Server=localhost;Database=cadastro;Uid=root;Pwd=mysql;");
+
+                conexao = new MySqlConnection(banco);
+
                 query = "select t.id as id_cliente, t.ddd as DDD, t.telefone as Telefone, c.nome as Nome from telefone t, cliente c where c.id = t.cliente_id;";
 
                 da = new MySqlDataAdapter(query, conexao);
@@ -94,8 +98,8 @@ namespace Cadastro
             {
                 id_cliente = dGV.SelectedRows[0].Cells["ID"].Value.ToString();
 
+                conexao = new MySqlConnection(banco);
 
-                conexao = new MySqlConnection("Server=localhost;Database=cadastro;Uid=root;Pwd=mysql;");
                 query = "CALL DELETACLIENTE(@ID)";
 
                 comando = new MySqlCommand(query, conexao);
@@ -122,7 +126,9 @@ namespace Cadastro
         {
             try
             {
-                conexao = new MySqlConnection("Server=localhost;Database=cadastro;Uid=root;Pwd=mysql;");
+
+                conexao = new MySqlConnection(banco);
+
                 query = "CALL INSERECLIENTE(@NOME, @DDD, @TELEFONE)";
 
                 comando = new MySqlCommand(query, conexao);
@@ -151,7 +157,8 @@ namespace Cadastro
         {
             try
             {
-                conexao = new MySqlConnection("Server=localhost;Database=cadastro;Uid=root;Pwd=mysql;");
+
+                conexao = new MySqlConnection(banco);
                 query = "CALL ALTERACLIENTE(@NOME, @DDD, @TELEFONE, @id)";
 
                 comando = new MySqlCommand(query, conexao);
